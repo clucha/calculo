@@ -1,0 +1,103 @@
+
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title>DATOS DE EMPLEADO</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <script>
+ 
+function calculo()
+{
+    let sueldo_base, comisiones, descuentos_judiciales, igss, isr, salario, acumuladoigss, isrtotal;
+    sueldo_base = parseFloat (document.form.sueldo_base.value);
+    comisiones = parseFloat (document.form.comisiones.value);
+    descuentos_judiciales = parseFloat (document.form.descuentos_judiciales.value);
+    igss = parseFloat (document.form.igss.value);
+    isr = parseFloat (document.form.isr.value); 
+    acumuladoigss=(sueldo_base*igss)*0.01;
+    isrtotal=((sueldo_base+comisiones)*(isr))*0.01;
+    salario=sueldo_base+comisiones-descuentos_judiciales-acumuladoigss-isrtotal;
+    document.form.salario.value = salario;
+}
+        </script>
+    </head>
+    <body>
+        <form name="form">
+            <table style="text-align: left; margin-left: auto; margin-right: auto;">
+                <tbody>
+                    <tr>
+                        <td>
+                            <label for="empleado">Código de empleado:</label>
+                        </td>
+                        <td>
+                            <input name="empleado" required="required"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label for="nombre">Nombre de empleado:</label>
+                        </td>
+                        <td>
+                            <input name="nombre" required="required"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label for="sueldo_base">Sueldo Base:</label>
+                        </td>
+                        <td>
+                            <input name="sueldo_base" required="required"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label for="comisiones">Comisiones:</label>
+                        </td>
+                        <td>
+                            <input name="comisiones" required="required"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label for="descuentos_judiciales">Descuentos Judiciales:</label>
+                        </td>
+                        <td>
+                            <input name="descuentos_judiciales"  />
+                        </td>
+                    </tr>
+                     <tr>
+                        <td>
+                            <label for="igss">Porcentaje del descuento del IGSS:</label>
+                        </td>
+                        <td>
+                            <input name="igss" required="required" />%
+                        </td>
+                    </tr>
+                     <tr>
+                        <td>
+                            <label for="isr">Porcentaje del descuento de ISR:</label>
+                        </td>
+                        <td>
+                            <input name="isr" required="required" />%
+                        </td>
+                    </tr>
+                     <tr>
+                        <td>
+                            <label for="salario">Sueldo Liquido:</label>
+                        </td>
+                        <td>
+                            <input name="salario" />
+                        </td>
+                    </tr>
+                    <tr align="center">
+                        <td colspan="2" rowspan="1">
+                            <input value="Calcular" type="button" onclick="calculo();" />
+                            <input type="reset" value="Limpiar"/>
+                        </td>
+                    </tr>
+                   
+                </tbody>
+            </table>
+        </form>
+    </body>
+</html>
